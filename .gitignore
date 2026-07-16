@@ -1,20 +1,19 @@
 # Python
 venv/
 __pycache__/
-*.pyc
 
 # Node
 node_modules/
 
+# Dataset
+dataset/
+
+# Jupyter
+.ipynb_checkpoints/
+
 # Environment
 .env
 
-# VS Code
-.vscode/
-
-# Build files
+# Build
 dist/
 build/
-
-# Logs
-npm-debug.log*
