@@ -3,21 +3,18 @@ venv/
 __pycache__/
 *.pyc
 
-# Node
-node_modules/
+# Environment
+.env
 
-# Dataset
-dataset/
+# Jupyter
+.ipynb_checkpoints/
 
 # ML Models
 ml/*.pkl
 
-# Environment
-.env
+# VS Code
+.vscode/
 
-# Build
-dist/
-build/
-
-# Jupyter
-.ipynb_checkpoints/
+# OS
+.DS_Store
+Thumbs.db
