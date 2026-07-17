@@ -1,6 +1,7 @@
 # Python
 venv/
 __pycache__/
+*.pyc
 
 # Node
 node_modules/
@@ -8,8 +9,8 @@ node_modules/
 # Dataset
 dataset/
 
-# Jupyter
-.ipynb_checkpoints/
+# ML Models
+ml/*.pkl
 
 # Environment
 .env
@@ -17,3 +18,6 @@ dataset/
 # Build
 dist/
 build/
+
+# Jupyter
+.ipynb_checkpoints/
