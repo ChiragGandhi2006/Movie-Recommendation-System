@@ -13,7 +13,9 @@ def recommend_hybrid(user_id: int, movie_name: str):
 
     for title in content_movies:
 
-        movie = movies_df[movies_df["title"].str.contains(title, case=False, na=False)]
+        movie = movies_df[movies_df["title"].str.casefold() == title.casefold()]
+        if movie.empty:
+            movie = movies_df[movies_df["title"].str.contains(title, case=False, na=False, regex=False)]
 
         if movie.empty:
             continue

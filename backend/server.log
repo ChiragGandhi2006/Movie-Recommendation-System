@@ -1,0 +1,727 @@
+DATABASE_URL = mysql+pymysql://root:Pass%40123@localhost:3306/movie_recommendation_system
+<class 'pandas.DataFrame'>
+   movie_id  ...                                               tags
+0     19995  ...  in the 22nd century, a parapleg marin is dispa...
+1       285  ...  captain barbossa, long believ to be dead, ha c...
+2    206647  ...  a cryptic messag from bond’ past send him on a...
+3     49026  ...  follow the death of district attorney harvey d...
+4     49529  ...  john carter is a war-weary, former militari ca...
+
+[5 rows x 3 columns]
+Index(['movie_id', 'title', 'tags'], dtype='str')
+2026-07-18 22:24:42,908 INFO sqlalchemy.engine.Engine SELECT DATABASE()
+2026-07-18 22:24:42,909 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-07-18 22:24:42,910 INFO sqlalchemy.engine.Engine SELECT @@sql_mode
+2026-07-18 22:24:42,910 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-07-18 22:24:42,911 INFO sqlalchemy.engine.Engine SELECT @@lower_case_table_names
+2026-07-18 22:24:42,911 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-07-18 22:24:42,912 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:24:42,913 INFO sqlalchemy.engine.Engine DESCRIBE `movie_recommendation_system`.`users`
+2026-07-18 22:24:42,913 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-07-18 22:24:42,917 INFO sqlalchemy.engine.Engine DESCRIBE `movie_recommendation_system`.`user_preferences`
+2026-07-18 22:24:42,917 INFO sqlalchemy.engine.Engine [raw sql] {}
+2026-07-18 22:24:42,919 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:53205 - "GET /recommend/content/Chase%2C%20The%20%281994%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53205 - "GET /recommend/hybrid/5/Chase%2C%20The%20%281994%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56401 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63808 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57303 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62653 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52625 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63808 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56401 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57303 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62653 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52625 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+2026-07-18 22:25:41,605 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:25:41,609 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password AS users_password 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:25:41,609 INFO sqlalchemy.engine.Engine [generated in 0.00048s] {'email_1': 'jay.rathi24@vit.edu', 'param_1': 1}
+INFO:     127.0.0.1:61007 - "POST /auth/login HTTP/1.1" 200 OK
+2026-07-18 22:25:41,984 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:25:41,989 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:25:41,990 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:25:41,990 INFO sqlalchemy.engine.Engine [generated in 0.00031s] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61007 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:25:41,992 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+2026-07-18 22:25:42,466 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:25:42,466 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:25:42,467 INFO sqlalchemy.engine.Engine [cached since 0.4772s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61007 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:25:42,488 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+2026-07-18 22:25:42,582 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:25:42,583 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:25:42,583 INFO sqlalchemy.engine.Engine [cached since 0.5934s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61007 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:25:42,605 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:61007 - "OPTIONS /movies/552 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56829 - "OPTIONS /movies/552 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/552 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/552 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "OPTIONS /recommend/content/Three%20Musketeers%2C%20The%20%281993%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56829 - "OPTIONS /recommend/content/Three%20Musketeers%2C%20The%20%281993%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50303 - "GET /recommend/content/Three%20Musketeers%2C%20The%20%281993%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56829 - "OPTIONS /movies/search?query=True+Lies+(1994) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "OPTIONS /movies/search?query=Princess+Bride,+The+(1987) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64474 - "OPTIONS /movies/search?query=Jewel+of+the+Nile,+The+(1985) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59344 - "OPTIONS /movies/search?query=Romancing+the+Stone+(1984) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61520 - "OPTIONS /movies/search?query=Stunt+Man,+The+(1980) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64474 - "GET /movies/search?query=Princess+Bride,+The+(1987) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59344 - "GET /movies/search?query=Romancing+the+Stone+(1984) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50303 - "GET /recommend/content/Three%20Musketeers%2C%20The%20%281993%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56829 - "GET /movies/search?query=True+Lies+(1994) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61520 - "GET /movies/search?query=Stunt+Man,+The+(1980) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Jewel+of+the+Nile,+The+(1985) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61520 - "GET /movies/search?query=True+Lies+(1994) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56829 - "GET /movies/search?query=Princess+Bride,+The+(1987) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59344 - "GET /movies/search?query=Stunt+Man,+The+(1980) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61007 - "GET /movies/search?query=Jewel+of+the+Nile,+The+(1985) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50303 - "GET /movies/search?query=Romancing+the+Stone+(1984) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49680 - "GET /recommend/collaborative/5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49680 - "OPTIONS /recommend/hybrid/5/Three%20Musketeers%2C%20The%20%281993%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49680 - "GET /recommend/hybrid/5/Three%20Musketeers%2C%20The%20%281993%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63849 - "OPTIONS /movies/4956 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63849 - "OPTIONS /movies/4956 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63849 - "GET /movies/4956 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63849 - "GET /movies/4956 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+2026-07-18 22:26:27,123 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:26:27,124 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:26:27,125 INFO sqlalchemy.engine.Engine [cached since 45.13s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:26:27,178 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63002 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50938 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+2026-07-18 22:26:27,229 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:26:27,230 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:26:27,230 INFO sqlalchemy.engine.Engine [cached since 45.24s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:63002 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:26:27,255 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:28:50,830 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:28:50,832 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password AS users_password 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:28:50,832 INFO sqlalchemy.engine.Engine [cached since 189.2s ago] {'email_1': 'audit-1784393930@example.com', 'param_1': 1}
+2026-07-18 22:28:51,160 INFO sqlalchemy.engine.Engine INSERT INTO users (username, email, password) VALUES (%(username)s, %(email)s, %(password)s)
+2026-07-18 22:28:51,163 INFO sqlalchemy.engine.Engine [generated in 0.00337s] {'username': 'audit_1784393930', 'email': 'audit-1784393930@example.com', 'password': '$2b$12$yUCmiCoPSQkwPZKwTbUn3OPXpBFZvrkYulxrE92gxOD5j6dpAFTo.'}
+2026-07-18 22:28:51,165 INFO sqlalchemy.engine.Engine COMMIT
+2026-07-18 22:28:51,169 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:28:51,170 INFO sqlalchemy.engine.Engine SELECT users.id, users.username, users.email, users.password 
+FROM users 
+WHERE users.id = %(pk_1)s
+2026-07-18 22:28:51,170 INFO sqlalchemy.engine.Engine [generated in 0.00036s] {'pk_1': 6}
+INFO:     127.0.0.1:54388 - "POST /auth/signup HTTP/1.1" 200 OK
+2026-07-18 22:28:51,172 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:28:51,179 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:28:51,179 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password AS users_password 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:28:51,179 INFO sqlalchemy.engine.Engine [cached since 189.6s ago] {'email_1': 'audit-1784393930@example.com', 'param_1': 1}
+INFO:     127.0.0.1:54388 - "POST /auth/login HTTP/1.1" 200 OK
+2026-07-18 22:28:51,518 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:28:51,522 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:28:51,523 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:28:51,523 INFO sqlalchemy.engine.Engine [cached since 189.5s ago] {'user_id_1': 6, 'param_1': 1}
+INFO:     127.0.0.1:54388 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:28:51,525 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:28:51,529 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:28:51,530 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:28:51,530 INFO sqlalchemy.engine.Engine [cached since 189.5s ago] {'user_id_1': 6, 'param_1': 1}
+2026-07-18 22:28:51,531 INFO sqlalchemy.engine.Engine INSERT INTO user_preferences (user_id, genres) VALUES (%(user_id)s, %(genres)s)
+2026-07-18 22:28:51,531 INFO sqlalchemy.engine.Engine [generated in 0.00028s] {'user_id': 6, 'genres': 'Action,Comedy,Sci-Fi'}
+2026-07-18 22:28:51,533 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:54388 - "PUT /users/preferences HTTP/1.1" 200 OK
+2026-07-18 22:28:51,538 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:28:51,539 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:28:51,539 INFO sqlalchemy.engine.Engine [cached since 189.5s ago] {'user_id_1': 6, 'param_1': 1}
+INFO:     127.0.0.1:54388 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:28:51,541 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:28:51,543 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:28:51,543 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:28:51,544 INFO sqlalchemy.engine.Engine [cached since 189.6s ago] {'user_id_1': 6, 'param_1': 1}
+INFO:     127.0.0.1:54388 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:28:51,562 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:54388 - "GET /movies/search?query=Toy%20Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54388 - "GET /movies/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54388 - "GET /recommend/content/Toy%20Story%20%281995%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54388 - "GET /recommend/collaborative/6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54388 - "GET /recommend/hybrid/6/Toy%20Story%20%281995%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54392 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59717 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56630 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52962 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50661 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57484 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59717 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57484 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56630 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52962 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50661 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54702 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+2026-07-18 22:30:20,415 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:30:20,418 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password AS users_password 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:30:20,419 INFO sqlalchemy.engine.Engine [cached since 278.8s ago] {'email_1': 'jay.rathi24@vit.edu', 'param_1': 1}
+INFO:     127.0.0.1:61179 - "POST /auth/login HTTP/1.1" 200 OK
+2026-07-18 22:30:20,780 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:30:20,784 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:30:20,784 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:30:20,785 INFO sqlalchemy.engine.Engine [cached since 278.8s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61179 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:30:20,788 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:61179 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64659 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51067 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65519 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55024 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64659 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61179 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51067 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55024 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65519 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61179 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51067 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65519 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+2026-07-18 22:30:21,269 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:     127.0.0.1:55024 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+2026-07-18 22:30:21,270 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:30:21,271 INFO sqlalchemy.engine.Engine [cached since 279.3s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61179 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51067 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65519 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55024 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64659 - "GET /recommend/personalized HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61179 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+2026-07-18 22:30:21,323 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:51067 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+2026-07-18 22:30:21,336 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:30:21,336 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:30:21,337 INFO sqlalchemy.engine.Engine [cached since 279.3s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:65519 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:30:21,357 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:56814 - "OPTIONS /movies/135216 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56814 - "OPTIONS /movies/135216 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56814 - "GET /movies/135216 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56814 - "GET /movies/135216 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "OPTIONS /recommend/content/The%20Star%20Wars%20Holiday%20Special%20%281978%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "OPTIONS /recommend/content/The%20Star%20Wars%20Holiday%20Special%20%281978%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "GET /recommend/content/The%20Star%20Wars%20Holiday%20Special%20%281978%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "OPTIONS /movies/search?query=Super+Mario+Bros.+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "OPTIONS /movies/search?query=Space+Jam+(1996) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "OPTIONS /movies/search?query=Grand+Day+Out+with+Wallace+and+Gromit,+A+(1989) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "GET /recommend/content/The%20Star%20Wars%20Holiday%20Special%20%281978%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "OPTIONS /movies/search?query=Honey,+I+Shrunk+the+Kids+(1989) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "OPTIONS /movies/search?query=Robots+(2005) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "GET /movies/search?query=Super+Mario+Bros.+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "GET /movies/search?query=Space+Jam+(1996) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "GET /movies/search?query=Honey,+I+Shrunk+the+Kids+(1989) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "GET /movies/search?query=Grand+Day+Out+with+Wallace+and+Gromit,+A+(1989) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "GET /movies/search?query=Super+Mario+Bros.+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "GET /movies/search?query=Robots+(2005) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "GET /movies/search?query=Honey,+I+Shrunk+the+Kids+(1989) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "GET /movies/search?query=Space+Jam+(1996) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53716 - "GET /movies/search?query=Robots+(2005) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61016 - "GET /movies/search?query=Grand+Day+Out+with+Wallace+and+Gromit,+A+(1989) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52333 - "OPTIONS /recommend/hybrid/5/The%20Star%20Wars%20Holiday%20Special%20%281978%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52333 - "GET /recommend/hybrid/5/The%20Star%20Wars%20Holiday%20Special%20%281978%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55642 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52529 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64752 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52948 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58363 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59983 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55642 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64752 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52529 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52948 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59983 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52529 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52948 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64752 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+2026-07-18 22:31:50,139 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:31:50,139 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+INFO:     127.0.0.1:55642 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+2026-07-18 22:31:50,139 INFO sqlalchemy.engine.Engine [cached since 368.1s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:59983 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55642 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64752 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52529 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52948 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58363 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:31:50,203 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:31:50,206 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:31:50,207 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:31:50,207 INFO sqlalchemy.engine.Engine [cached since 368.2s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:58363 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:31:50,227 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52252 - "OPTIONS /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60627 - "OPTIONS /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64924 - "OPTIONS /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "OPTIONS /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63037 - "OPTIONS /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50143 - "OPTIONS /users/profile HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52252 - "OPTIONS /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60627 - "OPTIONS /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64924 - "OPTIONS /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "OPTIONS /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63037 - "OPTIONS /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50143 - "OPTIONS /users/profile HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52252 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60627 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64924 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63037 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52252 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64924 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+2026-07-18 22:33:33,317 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:33:33,330 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:33:33,332 INFO sqlalchemy.engine.Engine [cached since 471.3s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:60627 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63037 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50143 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:33:33,337 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:33:33,339 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:33:33,340 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:33:33,340 INFO sqlalchemy.engine.Engine [cached since 471.4s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:50143 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:33:33,342 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52451 - "OPTIONS /auth/login HTTP/1.1" 200 OK
+2026-07-18 22:33:53,054 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:33:53,054 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password AS users_password 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:33:53,055 INFO sqlalchemy.engine.Engine [cached since 491.4s ago] {'email_1': 'jay.rathi24@vit.edu', 'param_1': 1}
+INFO:     127.0.0.1:52451 - "POST /auth/login HTTP/1.1" 200 OK
+2026-07-18 22:33:53,412 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:33:53,416 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:33:53,416 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:33:53,417 INFO sqlalchemy.engine.Engine [cached since 491.4s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:52451 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:33:53,419 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52451 - "OPTIONS /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "OPTIONS /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63221 - "OPTIONS /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "OPTIONS /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "OPTIONS /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63221 - "OPTIONS /recommend/personalized HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "OPTIONS /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "OPTIONS /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63221 - "OPTIONS /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "OPTIONS /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "OPTIONS /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "OPTIONS /recommend/personalized HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63221 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63221 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63221 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+2026-07-18 22:33:53,916 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:33:53,917 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+INFO:     127.0.0.1:52631 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+2026-07-18 22:33:53,918 INFO sqlalchemy.engine.Engine [cached since 491.9s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:52451 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52451 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63221 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:33:53,979 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52451 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63221 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52631 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+2026-07-18 22:33:54,013 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:33:54,014 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:33:54,015 INFO sqlalchemy.engine.Engine [cached since 492s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:52451 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:33:54,036 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55103 - "OPTIONS /movies/1197 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "OPTIONS /movies/1197 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "GET /movies/1197 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "GET /movies/1197 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "OPTIONS /recommend/content/Princess%20Bride%2C%20The%20%281987%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55103 - "OPTIONS /recommend/content/Princess%20Bride%2C%20The%20%281987%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "GET /recommend/content/Princess%20Bride%2C%20The%20%281987%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55103 - "OPTIONS /movies/search?query=Librarian:+Quest+for+the+Spear,+The+(2004) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "OPTIONS /movies/search?query=Kid+in+King+Arthur%27s+Court,+A+(1995) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55103 - "OPTIONS /movies/search?query=Last+Action+Hero+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "GET /movies/search?query=True+Lies+(1994) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55103 - "GET /movies/search?query=Super+Mario+Bros.+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "GET /recommend/content/Princess%20Bride%2C%20The%20%281987%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "GET /movies/search?query=Librarian:+Quest+for+the+Spear,+The+(2004) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55103 - "GET /movies/search?query=Kid+in+King+Arthur%27s+Court,+A+(1995) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "GET /movies/search?query=Last+Action+Hero+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "GET /movies/search?query=True+Lies+(1994) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "GET /movies/search?query=Librarian:+Quest+for+the+Spear,+The+(2004) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55103 - "GET /movies/search?query=Super+Mario+Bros.+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50751 - "GET /movies/search?query=Last+Action+Hero+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60743 - "GET /movies/search?query=Kid+in+King+Arthur%27s+Court,+A+(1995) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "OPTIONS /recommend/collaborative/5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "GET /recommend/collaborative/5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "GET /recommend/content/Princess%20Bride%2C%20The%20%281987%29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59902 - "GET /movies/search?query=Kid+in+King+Arthur%27s+Court,+A+(1995) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61725 - "GET /movies/search?query=True+Lies+(1994) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "GET /movies/search?query=Librarian:+Quest+for+the+Spear,+The+(2004) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59902 - "GET /movies/search?query=Last+Action+Hero+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61725 - "GET /movies/search?query=Super+Mario+Bros.+(1993) HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61725 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59902 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61358 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62408 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61725 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61358 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62408 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59902 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62408 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61358 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+2026-07-18 22:34:17,140 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:34:17,140 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+INFO:     127.0.0.1:59902 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+2026-07-18 22:34:17,141 INFO sqlalchemy.engine.Engine [cached since 515.2s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:62408 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61358 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61062 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59902 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61725 - "GET /recommend/personalized HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61358 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62408 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+2026-07-18 22:34:17,209 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:34:17,212 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:34:17,213 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:34:17,214 INFO sqlalchemy.engine.Engine [cached since 515.2s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61725 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:34:17,235 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55521 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58120 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50811 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49673 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65511 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55521 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50811 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58120 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65511 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49673 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+2026-07-18 22:42:42,423 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:42:42,427 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password AS users_password 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:42:42,427 INFO sqlalchemy.engine.Engine [cached since 1021s ago] {'email_1': 'jay.rathi24@vit.edu', 'param_1': 1}
+INFO:     127.0.0.1:61643 - "POST /auth/login HTTP/1.1" 200 OK
+2026-07-18 22:42:42,775 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:42:42,781 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:42:42,781 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:42:42,782 INFO sqlalchemy.engine.Engine [cached since 1021s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61643 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:42:42,785 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+2026-07-18 22:42:43,559 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:42:43,560 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:42:43,561 INFO sqlalchemy.engine.Engine [cached since 1022s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61643 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:42:43,583 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61643 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+2026-07-18 22:42:43,686 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:42:43,687 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:42:43,687 INFO sqlalchemy.engine.Engine [cached since 1022s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61643 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:42:43,712 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:43:03,698 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:43:03,699 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:43:03,700 INFO sqlalchemy.engine.Engine [cached since 1042s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:54560 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:43:03,703 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:43:03,708 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:43:03,708 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:43:03,709 INFO sqlalchemy.engine.Engine [cached since 1042s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:54560 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:43:03,713 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:62085 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61717 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53124 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49674 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62085 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53124 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49674 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61717 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62085 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61717 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49674 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62085 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+2026-07-18 22:43:17,900 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:43:17,916 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+INFO:     127.0.0.1:49674 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+2026-07-18 22:43:17,918 INFO sqlalchemy.engine.Engine [cached since 1056s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:61717 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62085 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49674 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61717 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62085 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49674 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53124 - "GET /recommend/personalized HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61717 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+2026-07-18 22:43:18,012 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:43:18,014 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:43:18,015 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:43:18,015 INFO sqlalchemy.engine.Engine [cached since 1056s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:49674 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:43:18,042 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:51198 - "OPTIONS /movies/31367 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65076 - "OPTIONS /movies/31367 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65076 - "GET /movies/31367 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65076 - "GET /movies/31367 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61313 - "OPTIONS /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60732 - "OPTIONS /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53877 - "OPTIONS /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61119 - "OPTIONS /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57351 - "OPTIONS /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61799 - "OPTIONS /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53877 - "OPTIONS /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61313 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61799 - "OPTIONS /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60732 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61119 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57351 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53877 - "OPTIONS /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61313 - "OPTIONS /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61799 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60732 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61313 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61119 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57351 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61799 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57351 - "GET /movies/search?query=Jurassic HTTP/1.1" 200 OK
+2026-07-18 22:43:44,244 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+INFO:     127.0.0.1:61119 - "GET /movies/search?query=Lord+of+the+Rings HTTP/1.1" 200 OK
+2026-07-18 22:43:44,246 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:43:44,247 INFO sqlalchemy.engine.Engine [cached since 1082s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:60732 - "GET /movies/search?query=Avengers HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61313 - "GET /movies/search?query=Harry+Potter HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61799 - "GET /movies/search?query=Inception HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53877 - "GET /recommend/personalized HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61313 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61119 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60732 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57351 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+2026-07-18 22:43:44,320 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:61799 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+2026-07-18 22:43:44,331 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:43:44,332 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:43:44,332 INFO sqlalchemy.engine.Engine [cached since 1082s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:53877 - "GET /recommend/personalized HTTP/1.1" 200 OK
+2026-07-18 22:43:44,356 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57500 - "OPTIONS /users/profile HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60478 - "OPTIONS /users/profile HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57500 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60478 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57500 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60478 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57500 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+2026-07-18 22:46:59,807 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:46:59,809 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:46:59,816 INFO sqlalchemy.engine.Engine [cached since 1278s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:57500 - "GET /movies/search?query=Star+Wars HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60478 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:46:59,823 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57500 - "GET /movies/search?query=Toy+Story HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60478 - "GET /movies/search?query=Batman HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57500 - "GET /movies/search?query=Matrix HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60478 - "GET /movies/search?query=Godfather HTTP/1.1" 200 OK
+2026-07-18 22:46:59,869 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:46:59,870 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:46:59,870 INFO sqlalchemy.engine.Engine [cached since 1278s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:57500 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:46:59,873 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:65033 - "OPTIONS /auth/login HTTP/1.1" 200 OK
+2026-07-18 22:47:27,277 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:47:27,277 INFO sqlalchemy.engine.Engine SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password AS users_password 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:47:27,277 INFO sqlalchemy.engine.Engine [cached since 1306s ago] {'email_1': 'jay.rathi24@vit.edu', 'param_1': 1}
+INFO:     127.0.0.1:50337 - "POST /auth/login HTTP/1.1" 200 OK
+2026-07-18 22:47:27,623 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-07-18 22:47:27,627 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-18 22:47:27,627 INFO sqlalchemy.engine.Engine SELECT user_preferences.id AS user_preferences_id, user_preferences.user_id AS user_preferences_user_id, user_preferences.genres AS user_preferences_genres 
+FROM user_preferences 
+WHERE user_preferences.user_id = %(user_id_1)s 
+ LIMIT %(param_1)s
+2026-07-18 22:47:27,627 INFO sqlalchemy.engine.Engine [cached since 1306s ago] {'user_id_1': 5, 'param_1': 1}
+INFO:     127.0.0.1:50337 - "GET /users/profile HTTP/1.1" 200 OK
+2026-07-18 22:47:27,631 INFO sqlalchemy.engine.Engine ROLLBACK

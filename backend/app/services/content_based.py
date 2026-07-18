@@ -1,5 +1,6 @@
 import pickle
 from pathlib import Path
+from app.services.movie_service import movies_df
 
 # Get the project root folder
 BASE_DIR = Path(__file__).resolve().parents[3]
@@ -30,7 +31,7 @@ def recommend_content(movie_name: str):
 ]
 
     if movie.empty:
-        return None
+        return recommend_from_movielens_genres(movie_name)
 
     movie_index = movie.index[0]
 
@@ -50,3 +51,25 @@ def recommend_content(movie_name: str):
         )
 
     return recommendations
+
+
+def recommend_from_movielens_genres(movie_name: str, limit: int = 5):
+    """Fallback for MovieLens titles that are not in the TMDB content model."""
+    matching_movie = movies_df[
+        movies_df["title"].str.casefold() == movie_name.casefold()
+    ]
+    if matching_movie.empty:
+        return None
+
+    source = matching_movie.iloc[0]
+    genres = {genre for genre in str(source["genres"]).split("|") if genre and genre != "(no genres listed)"}
+    if not genres:
+        return []
+
+    candidates = movies_df[movies_df["movieId"] != source["movieId"]].copy()
+    candidates["_score"] = candidates["genres"].fillna("").apply(
+        lambda value: len(genres.intersection(value.split("|")))
+    )
+    return candidates[candidates["_score"] > 0].sort_values(
+        ["_score", "movieId"], ascending=[False, True]
+    )["title"].head(limit).tolist()
