@@ -15,6 +15,9 @@ ml/*.pkl
 # Environment
 .env
 
+# Local SQLite databases
+backend/data/
+
 # Build
 dist/
 build/

@@ -1,17 +1,19 @@
+import os
+from pathlib import Path
+
+from dotenv import load_dotenv
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
 oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl="/auth/login"
 )
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-ALGORITHM = os.getenv("ALGORITHM")
+SECRET_KEY = os.getenv("SECRET_KEY", "development-only-secret-change-me")
+ALGORITHM = os.getenv("ALGORITHM", "HS256")
 
 
 def get_current_user(

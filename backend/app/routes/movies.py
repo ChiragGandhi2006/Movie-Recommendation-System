@@ -1,6 +1,4 @@
-from fastapi import APIRouter
-from app.services.movie_service import search_movies
-from fastapi import HTTPException
+from fastapi import APIRouter, HTTPException
 from app.services.movie_service import search_movies, get_movie_details
 
 router = APIRouter(

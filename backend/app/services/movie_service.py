@@ -10,7 +10,7 @@ movies_df = pd.read_csv(MOVIELENS_DIR / "movies.csv")
 
 def search_movies(query: str):
     result = movies_df[
-        movies_df["title"].str.contains(query, case=False, na=False)
+        movies_df["title"].str.contains(query.strip(), case=False, na=False, regex=False)
     ][["movieId", "title"]]
 
     return result.head(10).to_dict(orient="records")

@@ -16,22 +16,19 @@ with open(ML_DIR / "movies.pkl", "rb") as file:
 with open(ML_DIR / "similarity.pkl", "rb") as file:
     similarity = pickle.load(file)
 
-# Load collaborative model
-with open(ML_DIR / "collaborative_model.pkl", "rb") as file:
-    collaborative_model = pickle.load(file)
-
-print(type(movies))
-print(movies.head())
-print(movies.columns)
-
 def recommend_content(movie_name: str):
+    normalized_name = movie_name.strip()
+    movie = movies[movies["title"].str.casefold() == normalized_name.casefold()]
 
-    movie = movies[
-    movies["title"].str.lower() == movie_name.lower()
-]
+    # Let users enter a recognizable part of a title instead of requiring the
+    # exact catalog title and year.
+    if movie.empty:
+        movie = movies[
+            movies["title"].str.contains(normalized_name, case=False, na=False, regex=False)
+        ]
 
     if movie.empty:
-        return recommend_from_movielens_genres(movie_name)
+        return recommend_from_movielens_genres(normalized_name)
 
     movie_index = movie.index[0]
 
@@ -58,6 +55,10 @@ def recommend_from_movielens_genres(movie_name: str, limit: int = 5):
     matching_movie = movies_df[
         movies_df["title"].str.casefold() == movie_name.casefold()
     ]
+    if matching_movie.empty:
+        matching_movie = movies_df[
+            movies_df["title"].str.contains(movie_name, case=False, na=False, regex=False)
+        ]
     if matching_movie.empty:
         return None
 

@@ -1,51 +1,7 @@
-INFO:     Started server process [10200]
+INFO:     Started server process [18752]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
-D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-  movies_df["title"].str.contains(query, case=False, na=False)
 D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
   movies_df["title"].str.contains(query, case=False, na=False)
 D:\VIT,Pune\ML_Projects\Movie Recommendiation System\backend\app\services\movie_service.py:13: UserWarning: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
