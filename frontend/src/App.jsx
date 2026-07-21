@@ -14,6 +14,7 @@ import FullPageLoader from "./components/ui/Loader";
 const Landing = lazy(() => import("./pages/Landing"));
 const Login = lazy(() => import("./pages/Login"));
 const Signup = lazy(() => import("./pages/Signup"));
+const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
 const Home = lazy(() => import("./pages/Home"));
 const Search = lazy(() => import("./pages/Search"));
 const MovieDetails = lazy(() => import("./pages/MovieDetails"));
@@ -44,6 +45,7 @@ function AnimatedRoutes() {
         <Route path="/" element={<PageTransition><Landing /></PageTransition>} />
         <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
         <Route path="/signup" element={<PageTransition><Signup /></PageTransition>} />
+        <Route path="/forgot-password" element={<PageTransition><ForgotPassword /></PageTransition>} />
         <Route path="/preferences" element={<ProtectedRoute><PageTransition><Preferences /></PageTransition></ProtectedRoute>} />
 
         <Route

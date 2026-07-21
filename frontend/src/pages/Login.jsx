@@ -20,7 +20,6 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
-  const [showForgot, setShowForgot] = useState(false);
   const [serverError, setServerError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -141,13 +140,12 @@ export default function Login() {
               <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wide">
                 Password
               </label>
-              <button
-                type="button"
-                onClick={() => setShowForgot(true)}
+              <Link
+                to="/forgot-password"
                 className="text-xs font-medium text-accent hover:text-white transition-colors"
               >
                 Forgot password?
-              </button>
+              </Link>
             </div>
             <div className="relative">
               <FiLock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
@@ -197,43 +195,6 @@ export default function Login() {
         </p>
       </motion.div>
 
-      <AnimatePresence>
-        {showForgot && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-5"
-            onClick={() => setShowForgot(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-sm rounded-2xl glass p-7 text-center"
-            >
-              <div className="mx-auto h-12 w-12 rounded-xl bg-accent/15 flex items-center justify-center text-accent text-xl mb-4">
-                <FiMail />
-              </div>
-              <h3 className="text-lg font-semibold text-white">
-                Password recovery is coming soon
-              </h3>
-              <p className="mt-2 text-sm text-slate-400">
-                This backend doesn't expose a password-reset endpoint yet.
-                Reach out to your administrator, or create a new account for now.
-              </p>
-              <Button
-                variant="ghost"
-                className="mt-6 w-full"
-                onClick={() => setShowForgot(false)}
-              >
-                Got it
-              </Button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
